@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Client;
+use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   
-        $data = Client::all();
-        $trash = Client::onlyTrashed()->get();
-        return view('dashboard', compact('data', 'trash'));
+    {
+        //
     }
 
     /**
@@ -36,15 +34,15 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Client $client)
     {
-        //
+        dd("rr");
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Client $client)
     {
         //
     }
@@ -52,7 +50,7 @@ class DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Client $client)
     {
         //
     }
@@ -60,8 +58,14 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Client $client, $id)
     {
-        dd("Hello");
+        $remove = Client::find($id)->delete();
+        return redirect()->back();
+    }
+
+    public function restore($id) {
+        $restore = Client::onlyTrashed()->find($id)->restore();
+        return redirect()->back();
     }
 }
