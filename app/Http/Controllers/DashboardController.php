@@ -22,7 +22,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        return view('client-form');
     }
 
     /**
@@ -30,7 +30,15 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $content = Client::create([
+            'company' => $request->company,
+            'vat' => $request->vat,
+            'address' => $request->address
+        ]);
+
+        $content->save();
+        
+        return redirect()->back();
     }
 
     /**
@@ -45,16 +53,23 @@ class DashboardController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
+    {   
+        $data = Client::where('id', $id)->get();
+        return view('update-client', ["id" => $id], compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
+    {   
+        $content = Client::find($id)->update([
+            'company' => $request->company,
+            'vat' => $request->vat,
+            'address' => $request->address
+        ]);
+
+        return redirect()->back();
     }
 
     /**

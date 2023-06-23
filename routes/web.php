@@ -15,11 +15,9 @@ use App\Http\Controllers\ClientController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DashboardController::class, 'index']);
 
-Route::resource('dashboards', DashboardController::class); 
+Route::resource('dashboards', DashboardController::class);
 
 Route::get('/dashboards/clients/{id}', [ClientController::class, 'destroy']);
 Route::get('/restore/{id}', [ClientController::class, 'restore']);
