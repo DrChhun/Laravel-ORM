@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('content')
-<form name="add-blog-post-form" id="add-blog-post-form" method="post" action="/dashboards/{{$id}}">
+<form name="add-blog-post-form" id="add-blog-post-form" method="post" action="/lists/{{$id}}">
     {{ method_field('PUT') }}
     @csrf
     @foreach($data as $data)
