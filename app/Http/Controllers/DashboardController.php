@@ -14,7 +14,7 @@ class DashboardController extends Controller
     {   
         $data = Client::all();
         $trash = Client::onlyTrashed()->get();
-        return view('dashboard', compact('data', 'trash'));
+        return view('list', compact('data', 'trash'));
     }
 
     /**
