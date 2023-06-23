@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientController;
@@ -15,9 +16,25 @@ use App\Http\Controllers\ClientController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', function () {
+    return redirect()->route('dashboard');
+});
 
-Route::resource('dashboards', DashboardController::class);
+// Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/dashboards/clients/{id}', [ClientController::class, 'destroy']);
-Route::get('/restore/{id}', [ClientController::class, 'restore']);
+Route::resource('lists', DashboardController::class)->only('index');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::resource('lists', DashboardController::class)->except('index');
+    Route::get('/lists/clients/{id}', [ClientController::class, 'destroy']);
+    Route::get('/restore/{id}', [ClientController::class, 'restore']);  
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
