@@ -11,8 +11,8 @@ class ProjectController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   $data = Project::all();
+        return view('project-list', compact('data'));
     }
 
     /**
@@ -37,7 +37,7 @@ class ProjectController extends Controller
      * Display the specified resource.
      */
     public function show(Project $project)
-    {
+    {   
         //
     }
 
