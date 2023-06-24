@@ -28,7 +28,9 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $data = Project::create($request->all());
+        $data->save();
+        return redirect()->back();
     }
 
     /**

@@ -20,7 +20,6 @@ class ProjectFactory extends Factory
             'title' => fake()->name(),
             'description' => fake()->sentence(),
             'deadline' => fake()->dateTimeAD(),
-            'assigned_user' => fake()->name(),
             'assigned_client' => fake()->name(),
             'status' => fake()->name()
         ];
