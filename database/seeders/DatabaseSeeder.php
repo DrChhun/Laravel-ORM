@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Client;
+use App\Models\Project;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
         //     'password' => '1234567890',
         //     'role' => '1'
         // ]);
+
+        Project::factory(10)->create();
 
         // Client::factory(10)->create();
     }
