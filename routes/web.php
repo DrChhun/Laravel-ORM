@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,9 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
-// Route::get('/', [DashboardController::class, 'index']);
-
 Route::resource('lists', DashboardController::class)->only('index');
+
+Route::resource('projects', ProjectController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
