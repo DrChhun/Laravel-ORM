@@ -46,22 +46,35 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        $id = $project->id;
+        $data = Project::where('id', $project->id)->get();
+
+        return view('update-project', ['id' => $id], compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Project $project)
-    {
-        //
+    {   
+        $content = Project::find($project->id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'deadline' => $request->deadline,
+            'assigned_client' => $request->assigned_client,
+            'status' => $request->status
+        ]);
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy(Project $project, $id)
     {
-        //
+        Project::where('id', $id)->delete();
+
+        return redirect()->back();
     }
 }
