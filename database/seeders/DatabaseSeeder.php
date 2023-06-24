@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'role' => '1'
         // ]);
 
-        Project::factory(10)->create();
+        // Project::factory(10)->create();
 
         // Client::factory(10)->create();
     }

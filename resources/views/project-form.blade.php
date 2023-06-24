@@ -28,6 +28,5 @@
         </select>
 
         <button class="text-start bg-blue-500 px-8 py-2 w-fit text-white rounded-md" type="submit">Submit</button>
-
     </form>
 @endsection
