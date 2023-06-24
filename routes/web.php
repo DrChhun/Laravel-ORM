@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('lists', DashboardController::class)->except('index');
     Route::get('/lists/clients/{id}', [ClientController::class, 'destroy']);
+    Route::get('/projects/delete/{id}', [ProjectController::class, 'destroy']);
     Route::get('/restore/{id}', [ClientController::class, 'restore']);  
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

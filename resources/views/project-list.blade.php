@@ -26,7 +26,7 @@
             <td>{{$data->status}}</td>
             <td class="flex justify-around">
                 <button class="px-4 py-2 bg-red-500 text-white rounded-sm">
-                    <a href="/lists/clients/{{$data->id}}">delete</a></button>
+                    <a href="/projects/delete/{{$data->id}}">delete</a></button>
                 <button class="px-4 py-2 bg-blue-500 text-white rounded-sm">
                     <a href="/lists/{{$data->id}}/edit">update</a>
                 </button>
