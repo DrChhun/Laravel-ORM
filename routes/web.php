@@ -27,7 +27,7 @@ Route::get('/test', function() {
     return $data;
 });
 
-Route::resource('lists', DashboardController::class)->only('index');
+Route::resource('clients', DashboardController::class)->only('index');
 
 Route::resource('projects', ProjectController::class);
 
@@ -36,8 +36,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::resource('lists', DashboardController::class)->except('index');
-    Route::get('/lists/clients/{id}', [ClientController::class, 'destroy']);
+    Route::resource('clients', DashboardController::class)->except('index');
+    Route::get('/clients/delete/{id}', [ClientController::class, 'destroy']);
     Route::get('/projects/delete/{id}', [ProjectController::class, 'destroy']);
     Route::get('/restore/{id}', [ClientController::class, 'restore']);  
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
