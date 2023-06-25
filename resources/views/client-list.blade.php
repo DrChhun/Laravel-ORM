@@ -3,7 +3,7 @@
 @section('content')
 <h1 class="">this is list</h1>
 
-<a href="/lists/create"><button class="px-4 py-2 bg-green-500 text-white my-8">Create client</button></a>
+<a href="/clients/create"><button class="px-4 py-2 bg-green-500 text-white my-8">Create client</button></a>
 
 <table class="table-auto w-full">
     <thead class="bg-gray-100">
@@ -22,9 +22,9 @@
             <td>{{$data->address}}</td>
             <td class="flex justify-around">
                 <button class="px-4 py-2 bg-red-500 text-white rounded-sm">
-                    <a href="/lists/clients/{{$data->id}}">delete</a></button>
+                    <a href="/clients/delete/{{$data->id}}">delete</a></button>
                 <button class="px-4 py-2 bg-blue-500 text-white rounded-sm">
-                    <a href="/lists/{{$data->id}}/edit">update</a>
+                    <a href="/clients/{{$data->id}}/edit">update</a>
                 </button>
             </td>
         </tr>

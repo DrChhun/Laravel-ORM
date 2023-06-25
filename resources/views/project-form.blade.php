@@ -22,8 +22,8 @@
 
         <label for="">Status</label>
         <select class="border-2 border-gray-200" name="status" id="cars">
-            <option value="volvo">Open</option>
-            <option value="saab">Close</option>
+            <option value="Open">Open</option>
+            <option value="Close">Close</option>
         </select>
 
         <button class="text-start bg-blue-500 px-8 py-2 w-fit text-white rounded-md" type="submit">Submit</button>

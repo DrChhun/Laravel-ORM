@@ -57,9 +57,10 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $id = $project->id;
+        $client = Client::all();
         $data = Project::where('id', $project->id)->get();
 
-        return view('update-project', ['id' => $id], compact('data'));
+        return view('update-project', ['id' => $id], compact('data', 'client'));
     }
 
     /**
