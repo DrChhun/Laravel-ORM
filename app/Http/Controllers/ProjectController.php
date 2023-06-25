@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -12,7 +13,8 @@ class ProjectController extends Controller
      */
     public function index()
     {   $data = Project::all();
-        return view('project-list', compact('data'));
+        $client = Client::all();
+        return view('project-list', compact('data', 'client'));
     }
 
     /**
@@ -20,7 +22,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project-form');
+        $client = Client::all();
+        return view('project-form', compact('client'));
     }
 
     /**
@@ -28,7 +31,14 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Project::create($request->all());
+        $data = Project::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'deadline' => $request->deadline,
+            'assigned_client' => $request->assigned_client,
+            'status' => $request->status,
+        ]);
+
         $data->save();
         return redirect()->back();
     }

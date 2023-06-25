@@ -12,4 +12,8 @@ class Client extends Model
     use HasFactory, SoftDeletes, HasApiTokens;
 
     protected $fillable = ['company','address', 'vat', 'delete_at'];
+
+    public function projects() {
+        return $this->hasMany(Project::class, 'assigned_client');
+    }
 }

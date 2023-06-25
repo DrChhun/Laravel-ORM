@@ -10,4 +10,8 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'description', 'deadline', 'assigned_client', 'status'];
+
+    public function client() {
+        return $this->blongsTo(Client::class, 'assigned_client');
+    }
 }

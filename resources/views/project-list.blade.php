@@ -3,7 +3,7 @@
 @section('content')
 <h1 class="">this is projects list</h1>
 
-<a href="/lists/create"><button class="px-4 py-2 bg-green-500 text-white my-8">Create client</button></a>
+<a href="/projects/create"><button class="px-4 py-2 bg-green-500 text-white my-8">Create Project</button></a>
 
 <table class="table-auto w-full">
     <thead class="bg-gray-100">
@@ -22,7 +22,8 @@
             <td>{{$data->title}}</td>
             <td>{{$data->description}}</td>
             <td>{{$data->deadline}}</td>
-            <td>{{$data->assigned_client}}</td>
+            <!-- <td>{{$data->assigned_client}}</td> -->
+            <td>{{$client[$data->assigned_client - 1]->company}}</td>
             <td>{{$data->status}}</td>
             <td class="flex justify-around">
                 <button class="px-4 py-2 bg-red-500 text-white rounded-sm">
