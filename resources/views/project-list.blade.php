@@ -1,8 +1,6 @@
 @extends('main')
 
 @section('content')
-<h1 class="">this is projects list</h1>
-
 <a href="/projects/create"><button class="px-4 py-2 bg-green-500 text-white my-8">Create Project</button></a>
 
 <table class="table-auto w-full">
