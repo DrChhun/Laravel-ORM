@@ -1,9 +1,7 @@
 @extends('main')
 
 @section('content')
-<h1 class="">this is list</h1>
-
-<a href="/clients/create"><button class="px-4 py-2 bg-green-500 text-white my-8">Create client</button></a>
+<a href="/clients/create"><button class="px-4 py-2 bg-green-500 text-white my-8">Create Client</button></a>
 
 <table class="table-auto w-full">
     <thead class="bg-gray-100">

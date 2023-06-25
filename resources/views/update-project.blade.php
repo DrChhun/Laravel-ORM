@@ -2,7 +2,7 @@
 
 @section('content')
     <form class="flex flex-col w-1/2 mx-auto" action="/projects/{{$id}}" method="post">
-    {{ method_field('PUT') }}
+        {{ method_field('PUT') }}
         @csrf
         <label for="">Title</label>
         <input class="border-2 border-gray-200" name="title" type="text" placeholder="title">
