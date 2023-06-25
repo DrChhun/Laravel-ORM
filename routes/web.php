@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,11 @@ use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
+});
+
+Route::get('/test', function() {
+    $data = Client::find(6)->projects;
+    return $data;
 });
 
 Route::resource('lists', DashboardController::class)->only('index');

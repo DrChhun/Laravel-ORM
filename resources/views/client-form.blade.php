@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('content')
-<form name="add-blog-post-form" id="add-blog-post-form" method="post" action="/dashboards">
+<form name="add-blog-post-form" id="add-blog-post-form" method="post" action="/lists">
     @csrf
         <div class="form-group">
           <label for="exampleInputEmail1">Company</label>

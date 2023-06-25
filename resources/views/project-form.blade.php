@@ -15,10 +15,9 @@
 
         <label for="">Assigned client</label>
         <select class="border-2 border-gray-200" name="assigned_client" id="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            @foreach($client as $client)
+                <option value="{{$client->id}}">{{$client->company}}</option>
+            @endforeach
         </select>
 
         <label for="">Status</label>
